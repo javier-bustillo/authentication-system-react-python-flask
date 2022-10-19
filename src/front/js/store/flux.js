@@ -16,7 +16,8 @@ const getState = ({
                     background: "white",
                     initial: "white"
                 }
-            ]
+            ],
+            auth: false
         },
         actions: {
             // Use getActions to call a function within a fuction
@@ -37,7 +38,15 @@ const getState = ({
                         }
                     })
 
-                    .then((response) => response.json())
+                    .then((response) => {
+                        if (response.status === 200) {
+                            setStore({
+                                auth: true
+                            })
+                        }
+                        response.json()
+                    })
+
                     .then((data) => {
                         localStorage.setItem("token", data.access_token)
                     })
