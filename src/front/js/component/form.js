@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 
 const Form = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // console.log("email: " + email, "password: " + password);
+  const { actions } = useContext(Context);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    actions.login(email, password);
+  };
   return (
-    <form className="m-5">
+    <form onSubmit={handleSubmit}>
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1" className="form-label">
           Email address
