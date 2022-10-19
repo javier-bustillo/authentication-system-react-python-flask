@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import Form from "../component/form";
+import Form from "../component/form.js";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);

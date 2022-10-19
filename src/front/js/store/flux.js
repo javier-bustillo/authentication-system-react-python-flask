@@ -41,7 +41,7 @@ const getState = ({
                     .then((response) => {
                         if (response.status === 200) {
                             setStore({
-                                auth: true
+                                auth: false
                             })
                         }
                         response.json()
@@ -50,6 +50,15 @@ const getState = ({
                     .then((data) => {
                         localStorage.setItem("token", data.access_token)
                     })
+            },
+            logout: () => {
+
+                localStorage.removeItem("token")
+                setStore({
+                    auth: true
+                })
+
+
             },
             getMessage: async () => {
                 try {
