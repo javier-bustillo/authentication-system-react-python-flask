@@ -47,7 +47,7 @@ export const LoginForm = () => {
               />
             </div>
             <div className="d-flex justify-content-between">
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-success">
                 Submit
               </button>
               <Link to="/signup" className="btn btn-danger">
