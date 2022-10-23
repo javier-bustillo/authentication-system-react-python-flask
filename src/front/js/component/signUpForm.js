@@ -56,7 +56,7 @@ export const SignUpForm = () => {
             />
           </div>
           <div className="d-flex justify-content-between">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-success">
               Confirm
             </button>
             <Link to="/" className="btn btn-danger">
