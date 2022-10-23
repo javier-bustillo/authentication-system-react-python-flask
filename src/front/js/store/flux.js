@@ -49,9 +49,9 @@ const getState = ({
                 }
             },
 
-            login: (email, password) => {
-                // console.log(email, password);
-                fetch(process.env.BACKEND_URL + "/api/login", {
+            login: async (email, password) => {
+                try {
+                    const resp = await fetch(process.env.BACKEND_URL + "/api/login", {
                         method: "POST",
                         body: JSON.stringify({
                             "email": email,
@@ -59,21 +59,20 @@ const getState = ({
                         }),
                         headers: {
                             "Content-Type": "application/json"
-                        }
-                    })
+                        },
+                    });
 
-                    .then((response) => {
-                        if (response.status === 200) {
-                            setStore({
-                                auth: false
-                            })
-                        }
-                        response.json()
-                    })
-
-                    .then((data) => {
-                        localStorage.setItem("token", data.access_token)
-                    })
+                    const data = await resp.json();
+                    if (resp.status === 200) {
+                        setStore({
+                            auth: true
+                        });
+                        localStorage.setItem("token", data.access_token);
+                    }
+                    return data
+                } catch (error) {
+                    console.log("Error handling from backend", error);
+                }
             },
             logout: () => {
 
