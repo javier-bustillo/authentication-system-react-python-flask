@@ -1,10 +1,11 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Form = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [retypePassword, setRetypePassword] = useState("");
   const { store, actions } = useContext(Context);
 
   const handleSubmit = (e) => {

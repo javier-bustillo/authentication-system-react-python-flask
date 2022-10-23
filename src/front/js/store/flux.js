@@ -24,6 +24,30 @@ const getState = ({
             exampleFunction: () => {
                 getActions().changeColor(0, "green");
             },
+            signup: async (email, password) => {
+                try {
+                    const resp = await fetch(process.env.BACKEND_URL + "/api/signup", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Accept: "application/json"
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            password: password,
+                        }),
+
+                    });
+                    const data = await resp.text();
+                    if (resp.status == 200) {
+                        getActions().login(email, password);
+                    }
+                    return data;
+
+                } catch (error) {
+                    console.log("Error handling from backend", error);
+                }
+            },
 
             login: (email, password) => {
                 // console.log(email, password);
