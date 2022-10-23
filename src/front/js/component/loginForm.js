@@ -6,7 +6,7 @@ export const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { actions } = useContext(Context);
+  const { store, actions } = useContext(Context);
 
   const handleSubmit = (e) => {
     e.preventDefault();
