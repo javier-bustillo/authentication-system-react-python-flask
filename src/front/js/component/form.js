@@ -55,13 +55,14 @@ const Form = () => {
               onChange={(e) => setRetypePassword(e.target.value)}
             />
           </div>
-          <div className="d-flex justify-content-between"></div>
-          <button type="submit" className="btn btn-primary">
-            Sign Up
-          </button>
-          <Link to="/" className="btn btn-danger">
-            Cancel
-          </Link>
+          <div className="d-flex justify-content-between">
+            <button type="submit" className="btn btn-primary">
+              Sign Up
+            </button>
+            <Link to="/" className="btn btn-danger">
+              Cancel
+            </Link>
+          </div>
         </form>
       </div>
     </>

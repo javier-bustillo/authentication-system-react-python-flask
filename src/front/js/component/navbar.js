@@ -4,28 +4,27 @@ import { Context } from "../store/appContext";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
+  const logout = () => {
+    actions.logout();
+  };
   return (
     <nav className="navbar navbar-light bg-light">
       <div className="container">
         <Link to="/">
-          <span className="navbar-brand mb-0 h1">React Boilerplate</span>
+          <span className="navbar-brand mb-0 h1">Login</span>
         </Link>
-        <div className="ml-auto">
-          <Link to="/demo">
-            {store.auth ? (
-              <button
-                className="btn btn-primary"
-                onClick={() => actions.logout()}
-              >
-                Logout
-              </button>
-            ) : (
-              <Link to="/" className="btn btn-primary">
-                Login
-              </Link>
-            )}
-          </Link>
-        </div>
+
+        {store.auth ? (
+          <div className="ml-auto">
+            <button className="btn btn-primary" onClick={() => logout()}>
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="ml-auto">
+            <button className="btn btn-primary">Login</button>
+          </div>
+        )}
       </div>
     </nav>
   );
