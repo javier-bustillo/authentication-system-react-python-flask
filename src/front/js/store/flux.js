@@ -78,7 +78,7 @@ const getState = ({
 
                 localStorage.removeItem("token")
                 setStore({
-                    auth: true
+                    auth: false
                 })
 
 
