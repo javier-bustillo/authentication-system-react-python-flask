@@ -10,21 +10,17 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-light bg-light">
       <div className="container">
-        {/* <Link to="/">
-          <button className="btn btn-warning">Login</button>
-        </Link>
- */}
         {store.auth ? (
-          <Link to="/">
-            <div className="ml-auto">
-              <button className="btn btn-warning" onClick={() => logout()}>
-                Logout
-              </button>
-            </div>
-          </Link>
+          <div className="ml-auto">
+            <button className="btn btn-warning" onClick={() => logout()}>
+              Logout
+            </button>
+          </div>
         ) : (
           <div className="ml-auto">
-            <button className="btn btn-primary">Login</button>
+            <Link to="/">
+              <button className="btn btn-success">Login</button>
+            </Link>
           </div>
         )}
       </div>
