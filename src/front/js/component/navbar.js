@@ -10,7 +10,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-light bg-light">
       <div className="container">
-        <Link to="/login">
+        <Link to="/">
           <button className="btn btn-warning">Login</button>
         </Link>
 
