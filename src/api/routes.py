@@ -51,5 +51,5 @@ def login():
         return jsonify({"msg": "Bad username or password"}), 401
 
     access_token = create_access_token(
-        identity=email, expires_delta=datetime.timedelta(minutes=10))
+        identity=email, expires_delta=datetime.timedelta(minutes=90))
     return jsonify(access_token=access_token)
