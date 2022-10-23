@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState("");
