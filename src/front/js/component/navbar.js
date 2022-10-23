@@ -17,14 +17,14 @@ export const Navbar = () => {
         {store.auth ? (
           <Link to="/">
             <div className="ml-auto">
-              <button className="btn btn-primary" onClick={() => logout()}>
+              <button className="btn btn-warning" onClick={() => logout()}>
                 Logout
               </button>
             </div>
           </Link>
         ) : (
           <div className="ml-auto">
-            <button className="btn btn-success">Login</button>
+            <button className="btn btn-primary">Login</button>
           </div>
         )}
       </div>
