@@ -1,6 +1,16 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/home.css";
-import { Link, Navigate } from "react-router-dom";
+import signUpForm from "../component/signUpForm.js";
 
-export const Signup = () => {};
+export const SignUp = () => {
+  const { store, actions } = useContext(Context);
+
+  return (
+    <div className="text-center m-5">
+      <h1>Welcome</h1>
+      <div className={{ maxWidth: "600px" }}>
+        <signUpForm />
+      </div>
+    </div>
+  );
+};
